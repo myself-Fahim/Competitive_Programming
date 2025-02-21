@@ -1,0 +1,1 @@
+{"name":"Local: Elimination of a Ring","url":"d:\\Vs Problem Solving\\Elimination of a Ring.cpp","tests":[{"id":1738981871580,"input":"3\n4\n1 2 3 2\n4\n1 2 1 2\n1\n1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Vs Problem Solving\\Elimination of a Ring.cpp","group":"local","local":true}
