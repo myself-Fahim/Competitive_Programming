@@ -1,6 +1,6 @@
 <h1 align="center">Assalamu Alaikum, I'm Fahim Ashraful.</h1>
 <h2 align="center"><b>Passionate about competitive programming</b></h2>
-<h2 align="center"><b>Solving Problems in various online judges.</b></h2>
+<h2 align="center"><b>Solving problems in various online judges.</b></h2>
 
 
 <h3 align="left">Connect with me:</h3>
