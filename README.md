@@ -1,5 +1,5 @@
 <h1 align="center">Assalamu Alaikum, I'm Fahim Ashraful.</h1>
-<h3 align="center"><b>Passionate about competitive programming.</b></h3>
+<h2 align="center"><b>Passionate about competitive programming.</b></h2>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
