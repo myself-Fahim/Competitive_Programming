@@ -41,38 +41,62 @@ void Ahlan_Wa_Sahlan()
     cin >> t;
     whl
     {
-        ll l, r, n;
+        ll n, l, r, sum = 0;
         cin >> n >> l >> r;
-        vll a(n);
-        vll v1;
+        vll v(n);
         vll v2;
+        vll v3;
+        vll a;
+        vll b;
+
         for0(n)
         {
-            cin >> a[i];
+            cin >> v[i];
         }
-        for0(n)
+        for (int i = 0; i < l - 1; i++)
         {
-            if (i >= l - 1 && i <= r - 1)
-                v1.push_back(a[i]);
-            else
-                v2.push_back(a[i]);
+            v2.push_back(v[i]);
         }
-        sort(v1.begin(), v1.end());
+        for (int i = r; i < n; i++)
+        {
+            v3.push_back(v[i]);
+        }
+        for (int i = l - 1; i < r; i++)
+        {
+            a.push_back(v[i]);
+            b.push_back(v[i]);
+            sum += v[i];
+        }
+        ll sum1 = 0, sum2 = 0;
+        sort(a.rbegin(), a.rend());
+        sort(b.rbegin(), b.rend());
         sort(v2.begin(), v2.end());
-        ll size1 = v1.size();
-        ll size2 = v2.size();
-        for (int i = 0, j = size1 - 1; i < size2; i++)
+        sort(v3.begin(), v3.end());
+
+        for (int i = 0; i < min(a.size(), v2.size()); i++)
         {
-            if (v2[i] < v1[j])
-            {
-                v1[j] = v2[i];
-                j--;
-            }
+            a[i] = min(v2[i], a[i]);
         }
-        ll sum = 0;
-        for (auto u : v1)
-            sum += u;
-        cout << sum << endl;
+        for (auto u : a)
+            sum1 += u;
+
+        for (int i = 0; i < min(a.size(), v3.size()); i++)
+        {
+            b[i] = min(v3[i], b[i]);
+        }
+        for (auto u : b)
+            sum2 += u;
+
+        ll result;
+        if (sum1 > 0 && sum2 > 0)
+        {
+            result = min(sum1, sum2);
+        }
+        else
+        {
+            result = max(sum1, sum2);
+        }
+        cout << min(sum, result) << endl;
     }
 }
 int main()
