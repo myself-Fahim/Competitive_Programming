@@ -46,87 +46,30 @@ void Ahlan_Wa_Sahlan()
         sum = (n * (n + 1)) / 2;
         ld sqr = sqrt(sum);
         sqr2 = sqr;
-        // cout << "sqr: " << sqr << " " << "sqr2:" << sqr - sqr2 << endl;
         if (sqr - sqr2 == 0)
             cout << "-1" << endl;
         else
         {
-            vll v(n);
-            if (n & 1)
-            {
-                ld sqr = sqrt(n);
-                sqr2 = sqr;
-                if (sqr - sqr2 == 0)
-                {
+            ll sum = 0;
+            vll v;
+            for (int i = 1; i <= n; i++)
+                v.push_back(i);
 
-                    for (int i = 0, j = n-1; i < n ; i += 2)
-                    {
-                        v[i] = j;
-                        j -= 2;
-                    }
-                    for (int i = 1, j = n; i < n; i += 2)
-                    {
-                        v[i] = j;
-                        j -= 2;
-                    }
-                    v[n-1]=1;
-                    for (int i = 0; i < n; i++)
-                        cout << v[i] << " ";
-                    cout << endl;
-                }
-                else{
-                    for (int i = 0, j = n; i < n ; i += 2)
-                    {
-                        v[i] = j;
-                        j -= 2;
-                    }
-                    for (int i = 1, j = 2; i < n; i += 2)
-                    {
-                        v[i] = j;
-                        j += 2;
-                    }
-                    for (int i = 0; i < n; i++)
-                        cout << v[i] << " ";
-                    cout << endl;
-                }
-            }
-            else
+            for (int i = 0; i < v.size() - 1; i++)
             {
-                ld sqr = sqrt(n);
-                sqr2 = sqr;
-                if (sqr - sqr2 == 0)
+                sum += v[i];
+                ll sqrs = sqrt(sum);
+                if (sqrs * sqrs == sum)
                 {
-                    for (int i = 0, j = n - 1; i < n; i += 2)
-                    {
-                        v[i] = j;
-                        j -= 2;
-                    }
-                    for (int i = 1, j = n; i < n; i += 2)
-                    {
-                        v[i] = j;
-                        j -= 2;
-                    }
-                    for (int i = 0; i < n; i++)
-                        cout << v[i] << " ";
-                    cout << endl;
-                }
-                else
-                {
-                    for (int i = 0, j = n; i < n; i += 2)
-                    {
-                        v[i] = j;
-                        j -= 2;
-                    }
-                    for (int i = 1, j = 1; i < n; i += 2)
-                    {
-                        v[i] = j;
-                        j += 2;
-                    }
-                    for (int i = 0; i < n; i++)
-                        cout << v[i] << " ";
-                    cout << endl;
+                    // cout << i << " " << i + 1 << endl;
+                    sum -= v[i];
+                    swap(v[i], v[i + 1]);
+                    sum += v[i];
                 }
             }
+            for (int i = 0; i < n; i++)
+                cout << v[i] << " ";
+            cout << endl;
         }
     }
 }
