@@ -37,9 +37,21 @@ bool cmp(const pair<int, int> &p1, const pair<int, int> &p2)
 void Ahlan_Wa_Sahlan()
 {
     optimize();
-  
-   
-    
+    int t;
+    cin >> t;
+    whl
+    {
+        int n;
+        cin >> n;
+        vi v(n);
+        set<int> s;
+        for0(n)
+        {
+            cin >> v[i];
+            s.insert(v[i]);
+        }
+        cout << s.size() << endl;
+    }
 }
 
 int main()
