@@ -41,54 +41,53 @@ void Ahlan_Wa_Sahlan()
     cin >> t;
     whl
     {
-        int n, total_sum = 0;
-        cin >> n;
-        vi v(n);
-        vi v2;
-        vi v3;
+        ll n, k, f = 0, cnt = 0;
+        cin >> n >> k;
+        vll a(n);
+        vll b(n);
         for0(n)
         {
-            cin >> v[i];
-            total_sum += v[i];
+            cin >> a[i];
         }
-        int sum = 0;
-        for (int i = 0; i < n; i++)
+        for0(n)
         {
-            sum = 0;
-            for (int j = 0; j <= i; j++)
+            cin >> b[i];
+            if (b[i] == -1)
+                cnt++;
+        }
+        ll maxx = max_element(a.begin(), a.end()) - a.begin();
+        ll minn = min_element(a.begin(), a.end()) - a.begin();
+        if (cnt == n)
+        {
+            if (k + a[minn] < a[maxx])
+                cout << "0" << endl;
+            else
             {
-                sum += v[j];
+                cout << abs((k + a[minn] - a[maxx])) + 1 << endl;
             }
-            v2.push_back(sum);
         }
-
-        int sum2 = 0, cnt = 0, max_cnt = 0, ans = n;
-        for (int i = 0; i < n; i++)
+        else
         {
-            if (total_sum % v2[i] == 0)
+            set<int> s;
+            for (int i = 0; i < n; i++)
             {
-                max_cnt = i + 1;
-                for (int j = i + 1; j < n; j++)
+                if (b[i] != -1)
+                    s.insert(a[i] + b[i]);
+                if (b[i] != -1 && (a[i] + b[i]) < a[maxx] || (b[i] != -1 && b[maxx] != -1 && a[i] + b[i] > a[maxx] + b[maxx]))
                 {
-                    sum2 += v[j];
-                    cnt++;
-                    if (v2[i] == sum2)
-                    {
-                        max_cnt = max(max_cnt, cnt);
-                       
-                        cnt = 0;
-                        sum2 = 0;
-                    }
-                }
-                if (sum2 == 0)
-                {
-                    ans = min(ans, max_cnt);
+                    f = 1;
+                    break;
                 }
             }
-            sum2 = 0;
-            cnt = 0;
+            if (f == 1)
+                cout << "0" << endl;
+            else if (s.size() > 1)
+                cout << "0" << endl;
+            else if ((b[minn] == -1 && b[maxx] == -1 && a[minn] + k < a[maxx]) || (b[minn] == -1 && b[maxx] != -1 && a[minn] + k < a[maxx] + b[maxx]))
+                cout << "0" << endl;
+            else
+                cout << "1" << endl;
         }
-        cout << ans << endl;
     }
 }
 

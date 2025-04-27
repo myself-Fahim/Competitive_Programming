@@ -41,54 +41,35 @@ void Ahlan_Wa_Sahlan()
     cin >> t;
     whl
     {
-        int n, total_sum = 0;
-        cin >> n;
-        vi v(n);
-        vi v2;
-        vi v3;
-        for0(n)
+        int n, x;
+        cin >> n >> x;
+        if (x == 0)
         {
-            cin >> v[i];
-            total_sum += v[i];
-        }
-        int sum = 0;
-        for (int i = 0; i < n; i++)
-        {
-            sum = 0;
-            for (int j = 0; j <= i; j++)
+            for (int i = n - 1; i >= 0; i--)
             {
-                sum += v[j];
+                cout << i << " ";
             }
-            v2.push_back(sum);
+            cout << endl;
         }
+        else
+        {
+            vi v;
+            map<int, int> m;
+            m[x] = 1;
+            m[x - 1] = 1;
+            v.push_back(x - 1);
+            for (int i = 0; i < n; i++)
+            {
+                if (m[i] == 0)
+                    v.push_back(i);
+            }
+            if (n > x)
+                v.push_back(x);
+            for (auto u : v)
+                cout << u << " ";
 
-        int sum2 = 0, cnt = 0, max_cnt = 0, ans = n;
-        for (int i = 0; i < n; i++)
-        {
-            if (total_sum % v2[i] == 0)
-            {
-                max_cnt = i + 1;
-                for (int j = i + 1; j < n; j++)
-                {
-                    sum2 += v[j];
-                    cnt++;
-                    if (v2[i] == sum2)
-                    {
-                        max_cnt = max(max_cnt, cnt);
-                       
-                        cnt = 0;
-                        sum2 = 0;
-                    }
-                }
-                if (sum2 == 0)
-                {
-                    ans = min(ans, max_cnt);
-                }
-            }
-            sum2 = 0;
-            cnt = 0;
+            cout << endl;
         }
-        cout << ans << endl;
     }
 }
 

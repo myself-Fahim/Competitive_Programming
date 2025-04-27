@@ -41,54 +41,33 @@ void Ahlan_Wa_Sahlan()
     cin >> t;
     whl
     {
-        int n, total_sum = 0;
+        int n;
         cin >> n;
-        vi v(n);
-        vi v2;
-        vi v3;
+        string s;
+        cin >> s;
+        int cnt = 0;
+        vi v;
         for0(n)
         {
-            cin >> v[i];
-            total_sum += v[i];
+            if (s[i] == '1')
+                cnt++;
+        }
+        for0(n)
+        {
+            if (s[i] == '0')
+
+                v.push_back(cnt + 1);
+
+            else
+
+                v.push_back(cnt - 1);
         }
         int sum = 0;
-        for (int i = 0; i < n; i++)
+        for0(v.size())
         {
-            sum = 0;
-            for (int j = 0; j <= i; j++)
-            {
-                sum += v[j];
-            }
-            v2.push_back(sum);
+            sum += v[i];
         }
-
-        int sum2 = 0, cnt = 0, max_cnt = 0, ans = n;
-        for (int i = 0; i < n; i++)
-        {
-            if (total_sum % v2[i] == 0)
-            {
-                max_cnt = i + 1;
-                for (int j = i + 1; j < n; j++)
-                {
-                    sum2 += v[j];
-                    cnt++;
-                    if (v2[i] == sum2)
-                    {
-                        max_cnt = max(max_cnt, cnt);
-                       
-                        cnt = 0;
-                        sum2 = 0;
-                    }
-                }
-                if (sum2 == 0)
-                {
-                    ans = min(ans, max_cnt);
-                }
-            }
-            sum2 = 0;
-            cnt = 0;
-        }
-        cout << ans << endl;
+        cout << sum << endl;
     }
 }
 
