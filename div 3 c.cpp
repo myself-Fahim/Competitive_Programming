@@ -45,6 +45,7 @@ void Ahlan_Wa_Sahlan()
         cin >> n >> k;
         vll a(n);
         vll b(n);
+        set<int> s;
         for0(n)
         {
             cin >> a[i];
@@ -54,40 +55,33 @@ void Ahlan_Wa_Sahlan()
             cin >> b[i];
             if (b[i] == -1)
                 cnt++;
-        }
-        ll maxx = max_element(a.begin(), a.end()) - a.begin();
-        ll minn = min_element(a.begin(), a.end()) - a.begin();
-        if (cnt == n)
-        {
-            if (k + a[minn] < a[maxx])
-                cout << "0" << endl;
-            else
+        } 
+        ll maxx=0;
+        for0(n){
+            if(b[i] != -1)
             {
-                cout << abs((k + a[minn] - a[maxx])) + 1 << endl;
+                maxx=max(a[i]+b[i],maxx);
             }
         }
+         ll minn=min_element(a.begin(),a.end())-a.begin();
+         ll maxxx=max_element(a.begin(),a.end())-a.begin();
+        for0(n)
+        {
+            if(b[i] != -1 && (a[i] + b[i]) != maxx || (b[i] == -1 && a[i] + k < maxx) 
+            || a[i] > maxx )
+            {
+                f=1;
+                break;
+            }
+     
+        }
+       
+        if (f == 1 && cnt!=n)
+            cout << "0" << endl;
+        else if (cnt == n)
+            cout << ((a[minn] + k) - a[maxxx]) + 1 << endl;
         else
-        {
-            set<int> s;
-            for (int i = 0; i < n; i++)
-            {
-                if (b[i] != -1)
-                    s.insert(a[i] + b[i]);
-                if (b[i] != -1 && (a[i] + b[i]) < a[maxx] || (b[i] != -1 && b[maxx] != -1 && a[i] + b[i] > a[maxx] + b[maxx]))
-                {
-                    f = 1;
-                    break;
-                }
-            }
-            if (f == 1)
-                cout << "0" << endl;
-            else if (s.size() > 1)
-                cout << "0" << endl;
-            else if ((b[minn] == -1 && b[maxx] == -1 && a[minn] + k < a[maxx]) || (b[minn] == -1 && b[maxx] != -1 && a[minn] + k < a[maxx] + b[maxx]))
-                cout << "0" << endl;
-            else
-                cout << "1" << endl;
-        }
+            cout << "1" << endl;
     }
 }
 
