@@ -36,6 +36,42 @@ bool cmp(const pair<int, int> &p1, const pair<int, int> &p2)
 void Ahlan_Wa_Sahlan()
 {
     optimize();
+    int t;
+    cin >> t;
+    whl
+    {
+        ll n, k, x,sum=0;
+        cin >> n >> k >> x;
+        vll v(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> v[i];
+            sum+=v[i];
+        }
+        ll lim=sum*k;
+        if (x>lim)
+            cout << "0" << endl;
+        else
+        {
+            ll pre_exc = x / sum, pre_exc_cnt, sum2 = 0, cnt = 0, ans;
+            if (x % sum == 0)
+            {
+                pre_exc--;
+            }
+            pre_exc_cnt = pre_exc * n;
+            sum2 = sum * pre_exc;
+            for (int i = n - 1; i >= 0; i--)
+            {
+                sum2 += v[i];
+                if (sum2 < x)
+                    cnt++;
+                else
+                    break;
+            }
+            ans = (n * k) - (pre_exc_cnt + cnt);
+            cout<<ans<<endl;
+        }
+    }
 }
 int main()
 {
