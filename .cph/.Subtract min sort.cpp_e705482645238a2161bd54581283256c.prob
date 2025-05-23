@@ -1,0 +1,1 @@
+{"name":"Local: Subtract min sort","url":"d:\\Competitiive_Programming\\Subtract min sort.cpp","tests":[{"id":1748015646781,"input":"5\n3\n20 5 10\n4\n4 3 2 1\n4\n4 5 2 0\n8\n4 5 4 5 4 5 4 5\n9\n9 9 8 2 4 4 3 5 3\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Competitiive_Programming\\Subtract min sort.cpp","group":"local","local":true}
