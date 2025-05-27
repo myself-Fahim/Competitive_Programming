@@ -1,0 +1,1 @@
+{"name":"Local: Need More Arrays","url":"d:\\Competitiive_Programming\\Need More Arrays.cpp","tests":[{"id":1748275019047,"input":"6\n6\n1 2 3 4 5 6\n3\n1 2 3\n4\n1 2 2 4\n1\n2\n3\n1 4 8\n5\n1 2 2 2 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Competitiive_Programming\\Need More Arrays.cpp","group":"local","local":true}
