@@ -1,0 +1,1 @@
+{"name":"Local: Robin hood in town","url":"d:\\Competitiive_Programming\\Robin hood in town.cpp","tests":[{"id":1750956285279,"input":"6\n1\n2\n2\n2 19\n3\n1 3 20\n4\n1 2 3 4\n5\n1 2 3 4 5\n6\n1 2 1 1 1 25\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Competitiive_Programming\\Robin hood in town.cpp","group":"local","local":true}
